@@ -1,0 +1,170 @@
+﻿@model WebshopHPWcore.Models.TopCarsViewModel
+
+<h2>Top 5 beste modellen</h2>
+<div class="showcase">
+    @foreach (var item in Model.cars.OrderByDescending(c => c.CarCount).GroupBy(x => x.Car.brand).Take(5).Select(c => c))
+    {
+        <div class="showcaseitem">
+
+            @foreach (var bla in item)
+            {
+                <div class="showcaseitem-plaatje">
+
+                    @if (bla.Car.color == "Wit")
+                    { <img src="~/images/auto1.jpg" alt="Visual Studio" class="img-responsive" /> }
+                    @if (bla.Car.color == "Zilver")
+                    { <img src="~/images/auto2.jpg" alt="Visual Studio" class="img-responsive" />   }
+                    @if (bla.Car.color == "Grijs")
+                    {  <img src="~/images/auto3.jpg" alt="Visual Studio" class="img-responsive" />     }
+                    @if (bla.Car.color == "Rood")
+                    { <img src="~/images/auto4.jpg" alt="Visual Studio" class="img-responsive" /> }
+                    @if (bla.Car.color == "Blauw")
+                    { <img src="~/images/auto5.jpg" alt="Visual Studio" class="img-responsive" />   }
+                    @if (bla.Car.color == "Zwart")
+                    {  <img src="~/images/auto6.jpg" alt="Visual Studio" class="img-responsive" />     }
+                    @if (bla.Car.color == "Geel")
+                    { <img src="~/images/auto7.jpg" alt="Visual Studio" class="img-responsive" /> }
+                    @if (bla.Car.color == "Oranje")
+                    { <img src="~/images/auto8.jpg" alt="Visual Studio" class="img-responsive" />   }
+                    @if (bla.Car.color == "Groen")
+                    {  <img src="~/images/auto9.jpg" alt="Visual Studio" class="img-responsive" />     }
+                </div>
+                <div class="showcaseitem-content">
+                    <b>@bla.Car.brand @bla.Car.model</b> <br />
+                    <br />
+                    Dit model is al <b>@bla.CarCount keer gekocht!</b>
+                    <br /><br />
+                    <center><a class="btn btn-default" asp-controller="Car" asp-action="Carpage"
+                       asp-route-searchString="@bla.Car.brand"
+                       asp-route-searchStringModel="@bla.Car.model"
+                       asp-route-carColor=""
+                       asp-route-fueltype=""
+                       asp-route-motortype=""
+                       asp-route-transmission=""
+                       asp-route-maxPrice=""
+                       asp-route-minPrice=""
+                       asp-route-amountSeats=""
+                       asp-route-usage=""
+                       asp-route-pk=""
+                       asp-route-milage=""
+                       asp-route-topSpeed=""
+                       asp-route-minWeight=""
+                       asp-route-maxWeight="">
+
+                        Bekijk de collectie
+                    </a></center>
+                </div>
+
+
+                break;
+            }
+        </div>
+
+    }
+</div>
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="row" style="margin-top : 20px">
+    <div class="col-md-3">
+        <h2>Welkom bij Webshop RoyalBlueWheels</h2>
+        <p>
+            Bij RoyalBlueWheels vindt u uw droomauto in het grootste aanbod van Nederland met ruim 10.000 auto's.
+            Hierbij kunt u zoeken in het aanbod van uw lokale autobedrijf en van circa 50.000 autobedrijven in heel Nederland.
+            Of u nu een nieuwe auto of tweedehands auto zoekt, een milieuvriendelijke stadsauto of een sportieve auto – bij RoyalBlueWheels kunt u snel, eenvoudig en stressvrij uw droomauto vinden.
+        </p>
+        <br>
+        <p>
+            In het grootste aanbod van Nederland vindt u met slechts een paar klikken een nieuwe of tweedehands auto die aan al uw wensen voldoet.
+            Hierbij kunt u direct contact opnemen met de particuliere verkoper of het autobedrijf. U kunt eenvoudig en snel uw zoekresultaten bepalen aan de hand van uw specifieke wensen.
+            Selecteer bijvoorbeeld het gewenste merk, model, type brandstof, kilometerprijs en de prijs.
+            Bij RoyalBlueWheels vindt u altijd de auto die overeenkomt met uw wensen!
+        </p>
+    </div>
+
+    <div class="col-md-3">
+        <br>
+        <br>
+        <br />
+        <p>
+            RoyalBlueWheels test zowel nieuwe als tweedehands auto’s op een onafhankelijke manier waardoor u als eerste informatie over auto’s ontvangt.
+            Bij ons kunt u diverse auto’s vinden: nieuwe auto’s en oldtimers, tweedehands auto’s, kleine en luxe auto’s, sport auto’s, motoren, bedrijfswagens en nog veel meer.
+            Meer informatie vindt u in ons magazine en op de advies- en dienstenpagina.
+        </p>
+        <br>
+        <p>
+            Bent u niet alleen op zoek naar uw droomauto, maar ook naar de optimale financiering en/of verzekering?
+            RoyalBlueWheels heeft een uitgebreid aanbod aan diensten voor al uw specifieke wensen.
+        </p>
+    </div>
+</div>
+
+
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="~/images/auto1.jpg" alt="ASP.NET" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Hier komt text over auto nummer 1 uit de database
+                        <a class="btn btn-default" asp-area="" asp-controller="Car" asp-action="Carpage">
+                            View details
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/auto2.jpg" alt="Visual Studio" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Hier komt text over auto nummer 2 uit de database
+                        <a class="btn btn-default" asp-area="" asp-controller="Car" asp-action="Carpage">
+                            View details
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/auto3.jpg" alt="Package Management" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Hier komt text over auto nummer 3 uit de database
+                        <a class="btn btn-default" asp-area="" asp-controller="Car" asp-action="Carpage">
+                            View details
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/auto4.jpg" alt="Microsoft Azure" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Hier komt text over auto nummer 4 uit de database
+                        <a class="btn btn-default" asp-area="" asp-controller="Car" asp-action="Carpage">
+                            View details
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <br />
+    <br>
+    <br>*@

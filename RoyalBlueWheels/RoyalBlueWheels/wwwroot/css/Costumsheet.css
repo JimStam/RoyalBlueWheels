@@ -1,0 +1,104 @@
+﻿.dropbtn {
+    border-color : lightgray;
+    border-style : solid;
+    border-radius : 5px;
+    background-color: white;
+    color: black;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    margin : 0;
+    padding : 2px 12px ;
+}
+
+    .dropbtn:hover, .dropbtn:focus {
+        background-color: whitesmoke;
+    }
+
+#myInput {
+    border-box: box-sizing;
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: Black;
+    padding: 0px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-color: black;
+    border-style: solid;
+    min-width: 200px; 
+    overflow: auto;
+    height: auto;
+    width: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding-left:10px;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+.dropdown a:hover {
+    background-color: #f1f1f1
+}
+
+.show {
+    display: block;
+}
+
+.showcase {
+    margin-top : 5px;
+    width: 100%;
+    max-height: 40vh;
+    
+}
+
+.showcaseitem{
+    width : 18%;
+    border : solid;
+    border-color : royalblue;
+    margin : 10px;
+    height : 95%;
+    float : left;
+}
+
+.showcaseitem img{
+    max-width : 100%;
+}
+
+.showcaseitem-plaatje{
+    margin : 5%;
+    width : 90%;
+}
+
+.showcaseitem-content {
+    margin: 5%;
+    width: 90%;
+}
