@@ -54,7 +54,7 @@ namespace WebshopHPWcore.Controllers
         // GET: /WishList/AddToCart/5
         public async Task<IActionResult> AddToCart(int id, CancellationToken requestAborted)
         {
-            // Retrieve the album from the database
+            // Retrieve the cart from the database
             WishListFuncties cart;
 
             string userid = CheckId();
@@ -86,7 +86,7 @@ namespace WebshopHPWcore.Controllers
             // Retrieve the current user's shopping cart
             var cart = UserLogin();
 
-            // Get the name of the album to display confirmation
+            // Get the name of the cart to display confirmation
             var cartItem = await DbContext.WishListItems
                 .Where(item => item.WishListItemId == id)
                 .Include(c => c.Car)
